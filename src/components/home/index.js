@@ -1,5 +1,5 @@
 import React from 'react'
-import Hello from '../child'
+// import Hello from '../child'
 // import ReactDOM from 'react-dom'
 
 export const propsList = React.createContext({
@@ -20,8 +20,8 @@ export default class Home extends React.PureComponent {
 function ThemeComponent() {
   return (
     <div>
-      <Hello>123123</Hello>
-      <Hello>567567</Hello>
+      {/* <Hello>123123</Hello> */}
+      {/* <Hello>567567</Hello> */}
     </div>
   )
 }

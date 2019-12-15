@@ -1,5 +1,5 @@
 import React from 'react'
-// import Hello from '../child'
+import Hello from '../child'
 // import ReactDOM from 'react-dom'
 
 export const propsList = React.createContext({
@@ -10,9 +10,11 @@ export const propsList = React.createContext({
 export default class Home extends React.PureComponent {
   render() {
     return (
-      <propsList.Provider value={{propsA: '#49f', props: '#0f0'}}>
-        <ThemeComponent />
-      </propsList.Provider >
+      <div>
+        <propsList.Provider value={{propsA: '#49f', props: '#0f0'}}>
+          <ThemeComponent />
+        </propsList.Provider >
+      </div>
     )
   }
 }
@@ -20,8 +22,8 @@ export default class Home extends React.PureComponent {
 function ThemeComponent() {
   return (
     <div>
-      {/* <Hello>123123</Hello> */}
-      {/* <Hello>567567</Hello> */}
+      <Hello>123123</Hello>
+      <Hello>567567</Hello>
     </div>
   )
 }

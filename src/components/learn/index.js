@@ -9,14 +9,12 @@ export default class ErrorBoundary extends React.Component {
       errorInfo: null
      };
   }
-
   componentDidCatch(error, errorInfo) {
     // 你同样可以将错误日志上报给服务器
     this.setState({
       errorInfo
     })
   }
-
   render() {
     if (this.state.errorInfo) {
       // 你可以自定义降级后的 UI 并渲染

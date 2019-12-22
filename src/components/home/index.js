@@ -13,7 +13,7 @@ export default class Home extends React.PureComponent {
       <div>
         <propsList.Provider value={{propsA: '#49f', props: '#0f0'}}>
           <ThemeComponent />
-        </propsList.Provider >
+        </propsList.Provider>
       </div>
     )
   }
@@ -27,7 +27,6 @@ function ThemeComponent() {
     </div>
   )
 }
-
 
 
 // class Hello extends React.PureComponent {

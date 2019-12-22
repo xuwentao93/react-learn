@@ -1,35 +1,42 @@
-import { createStore } from 'redux'
+// import { createStore } from 'redux'
 
-const stateInitial = {
-  number: 0,
-  hello: 'hello',
-  change: 'I don\'t want to be changed'
-}
+// const stateInitial = {
+//   number: 0,
+//   hello: 'hello',
+//   change: 'I don\'t want to be changed'
+// }
 
-function setNumber(state = stateInitial, action) {
-  switch (action.type) {
-    case 'increase':
-      console.log(state.number + 1)
-      return {
-        ...state,
-        number: state.number + 1
-      }
-    case 'reduce':
-      console.log(state.number - 1)
-      return {
-        ...state,
-        number: state.number - 1
-      }
-    default:
-      console.log('error type! you didn\'t change anything!')
-      return state
-  }
-}
+// function setNumber(state = stateInitial, action) {
+//   switch (action.type) {
+//     case 'increase':
+//       console.log(state.number + 1)
+//       return {
+//         ...state,
+//         number: state.number + 1
+//       }
+//     case 'reduce':
+//       console.log(state.number - 1)
+//       return {
+//         ...state,
+//         number: state.number - 1
+//       }
+//     default:
+//       console.log('error type! you didn\'t change anything!')
+//       return state
+//   }
+// }
 
-export const store = createStore(setNumber)
+// export const store = createStore(setNumber)
 
-// store.dispatch(state, { type: 'increase' })
+import number from './reducers/number'
+import user from './reducers/user'
+import { createStore, combineReducers } from 'redux'
 
-// store.dispatch(state, { type: 'increase' })
+const reducers = combineReducers({
+  number,
+  user
+})
 
-// store.dispatch(state, { type: 'reduce' })
+const store = createStore(reducers)
+
+export default store

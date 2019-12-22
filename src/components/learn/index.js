@@ -2,14 +2,25 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addNumber, reduceNumber } from '../../models/actions/number'
 
-function Learn({ dispatch }) {
+const Learn = ({ number, addNumber, reduceNumber }) => {
   return (
     <>
-      <div>12312a3</div>
-      <button onClick={() => dispatch(addNumber())}>+</button>
-      <button onClick={() => dispatch(reduceNumber())}>-</button>
+      <div>{number.number}</div>
+      <button onClick={ addNumber }>+</button>
+      <button onClick={ reduceNumber }>-</button>
     </>
   )
 }
 
-export default connect()(Learn)
+const getNumber = (state) => {
+  const { number } = state
+  return { number }
+}
+
+const setNumber = (dispatch) => {
+  return {
+    addNumber: () => dispatch(addNumber()),
+    reduceNumber: () => dispatch(reduceNumber())
+  }
+}
+export default connect(getNumber, setNumber)(Learn)

@@ -7,7 +7,31 @@ import {
 } from "react-router-dom";
 import Home from '../components/home'
 import Learn from '../components/learn'
+import AsyncApp from '../containers/AsyncApp'
 
+const routes = [
+  {
+    path: '/home',
+    component: Home
+  },
+  {
+    path: '/learn',
+    component: Learn
+  },
+  {
+    path: '/async',
+    component: AsyncApp
+  },
+  {
+    path: '/',
+    component: Main,
+    exact: true
+  },
+  {
+    path: '*',
+    component: NotFind
+  }
+]
 export default function() {
   return (
     <Router>
@@ -15,16 +39,30 @@ export default function() {
         <ul>
           <li><Link to='/home'>to home</Link></li>
           <li><Link to='/learn'>to learn</Link></li>
+          <li><Link to='/async'>to async</Link></li>
         </ul>
       </div>
       <Switch>
-        <Route path='/home'>
-          <Home />
-        </Route>
-        <Route path='/learn'>
-          <Learn />
-        </Route>
+        {
+          routes.map((route, index) => (
+            <Route path={route.path} exact={route.exact} key={index}>
+              <route.component />
+            </Route>
+          ))
+        }
       </Switch>
     </Router>
+  )
+}
+
+function Main() {
+  return (
+    <div>this is a main page.</div>
+  )
+}
+
+function NotFind() {
+  return (
+    <div>404 not find.</div>
   )
 }

@@ -7,6 +7,7 @@ import {
 } from '../actions'
 import number from './number'
 import user from './user'
+import { meta } from './async'
 
 function selectedSubreddit(state = 'reactjs', action) {
   switch (action.type) {
@@ -64,7 +65,8 @@ const rootReducer = combineReducers({
   postsBySubreddit,
   selectedSubreddit,
   number,
-  user
+  user,
+  meta
 })
 
 export default rootReducer

@@ -10,7 +10,7 @@ const Learn = ({ number, meta, addNumber, reduceNumber, testAsync }) => {
       <div>{meta.msg}</div>
       <button onClick={ addNumber }>+</button>
       <button onClick={ reduceNumber }>-</button>
-      <button onClick={ () => testAsync('hello world') }></button>
+      <button onClick={ () => testAsync('hello world') }>test async hello world</button>
     </>
   )
 }

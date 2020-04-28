@@ -6,6 +6,7 @@ const initialState = {
 const ChangeNumber = (state = initialState, action) => {
   switch (action.type) {
     case 'addNumber':
+      console.log(action);
       return {
         ...state,
         number: state.number + 1
